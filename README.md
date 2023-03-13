@@ -20,7 +20,7 @@
 ## Features
 
 Demo GIF
-
+s
 ## Getting started
 
 ### Add volto-europa-analytics to your Volto project
