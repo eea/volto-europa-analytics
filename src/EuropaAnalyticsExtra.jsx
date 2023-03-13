@@ -9,7 +9,7 @@ import { loadEuropaAnalyticsScript } from './helpers';
  */
 export const EuropaAnalyticsAppExtra = () => {
   useEffect(() => {
-    loadEuropaAnalyticsScript(trackPageView)
+    loadEuropaAnalyticsScript(trackPageView);
   }, []);
 
   return <></>;

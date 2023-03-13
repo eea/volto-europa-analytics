@@ -1,6 +1,6 @@
 export const trackPageView = () =>
   window.addEventListener('wtAnalyticsReady', function () {
-    if ($wt.analytics.isTrackable()) {
-      $wt.trackPageView();
+    if (window.$wt.analytics.isTrackable()) {
+      window.$wt.trackPageView();
     }
   });
