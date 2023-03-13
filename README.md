@@ -20,7 +20,7 @@
 ## Features
 
 Demo GIF
-s
+
 ## Getting started
 
 ### Add volto-europa-analytics to your Volto project
@@ -78,6 +78,7 @@ See [LICENSE.md](https://github.com/eea/volto-europa-analytics/blob/master/LICEN
 ## Funding
 
 [European Environment Agency (EU)](http://eea.europa.eu)
-g
+
+
 
 [European Environment Agency (EU)](http://eea.europa.eu)
