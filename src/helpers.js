@@ -1,26 +1,10 @@
-import config from '@plone/volto/registry';
-
 const doEuropaAnalyticsParams = () => {
-  const { europaAnalyticsParams } = config.settings;
-  const siteID =
-    window.env?.RAZZLE_EUROPA_ANALYTICS_SITE_ID || europaAnalyticsParams.siteID;
+  const siteID = window.env?.RAZZLE_EUROPA_ANALYTICS_SITE_ID;
+  const sitePath = [window.env?.RAZZLE_EUROPA_ANALYTICS_SITE_PATH];
+  const mode = window.env?.RAZZLE_EUROPA_ANALYTICS_MODE;
+  const instance = window.env?.RAZZLE_EUROPA_ANALYTICS_INSTANCE;
+  const utility = window.env?.RAZZLE_EUROPA_ANALYTICS_UTILITY;
 
-  const sitePath = [
-    window.env?.RAZZLE_EUROPA_ANALYTICS_SITE_PATH ||
-      europaAnalyticsParams.sitePath ||
-      'https://matomo.eea.europa.eu/',
-  ];
-
-  const mode =
-    window.env?.RAZZLE_EUROPA_ANALYTICS_MODE || europaAnalyticsParams.mode;
-
-  const instance =
-    window.env?.RAZZLE_EUROPA_ANALYTICS_INSTANCE ||
-    europaAnalyticsParams.instance;
-
-  const utility =
-    window.env?.RAZZLE_EUROPA_ANALYTICS_UTILITY ||
-    europaAnalyticsParams.utility;
   const result = {
     siteID,
     sitePath,
@@ -28,11 +12,10 @@ const doEuropaAnalyticsParams = () => {
     mode,
     utility,
   };
-
   return result;
 };
 
-const loadEuropaAnalyticsScript = (callback) => {
+const loadEuropaAnalyticsScript = () => {
   const existingScript =
     __CLIENT__ && document.getElementById(`europaAnalyticsJS`);
 
@@ -52,32 +35,17 @@ const loadEuropaAnalyticsScript = (callback) => {
     script2.id = `europaAnalyticsJS`;
     script2.defer = `defer`;
     document.body.appendChild(script2);
-
-    script2.onload = () => {
-      if (callback) callback();
-    };
   }
-
-  //callback, if needed
-  if (existingScript && callback) {
-    callback();
-  }
-
-  const europaAnalytics = isMyScriptLoaded() && __CLIENT__ ? window.$wt : '';
-
-  return europaAnalytics;
 };
 
-const isMyScriptLoaded = () => {
-  //check for loaded europaAnalytics script in dom scripts
-  var scripts = __CLIENT__ && document.getElementsByTagName('script');
-  if (scripts) {
-    for (var i = scripts.length; i--; ) {
-      // eslint-disable-next-line eqeqeq
-      if (scripts[i].src === `https://europa.eu/webtools/load.js`) return true;
-    }
+const removeEuropaAnalyticsScript = () => {
+  const existingScript =
+    __CLIENT__ && document.getElementById(`europaAnalyticsJS`);
+
+  //replace script loaded on each route change
+  if (existingScript) {
+    existingScript.remove();
   }
-  return false;
 };
 
-export { loadEuropaAnalyticsScript };
+export { loadEuropaAnalyticsScript, removeEuropaAnalyticsScript };
