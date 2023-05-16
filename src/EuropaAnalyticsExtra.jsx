@@ -11,7 +11,7 @@ export const EuropaAnalyticsAppExtra = (props) => {
   const { pathname } = props;
 
   useEffect(() => {
-    if (window.$wt) $wt.trackPageView();
+    if (window.$wt) window.$wt.trackPageView();
   }, [pathname]);
   return <></>;
 };
