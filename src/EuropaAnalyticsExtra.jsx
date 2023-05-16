@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import {
-  loadEuropaAnalyticsScript,
-  removeEuropaAnalyticsScript,
-} from './helpers';
+import { loadEuropaAnalyticsScript } from './helpers';
 
+loadEuropaAnalyticsScript();
 /**
  *
  * @param {*} param0
@@ -13,13 +11,7 @@ export const EuropaAnalyticsAppExtra = (props) => {
   const { pathname } = props;
 
   useEffect(() => {
-    loadEuropaAnalyticsScript();
-
-    // this is the cleaner function, it will be executed before ony other code inside the setup function
-    // replace script loaded on each route change
-    return () => {
-      removeEuropaAnalyticsScript();
-    };
+    if (window.$wt) $wt.trackPageView();
   }, [pathname]);
   return <></>;
 };
