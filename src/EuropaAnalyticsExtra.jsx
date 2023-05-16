@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  loadEuropaAnalyticsScript,
-} from './helpers';
+import { loadEuropaAnalyticsScript } from './helpers';
 
 loadEuropaAnalyticsScript();
 /**
@@ -13,7 +11,7 @@ export const EuropaAnalyticsAppExtra = (props) => {
   const { pathname } = props;
 
   useEffect(() => {
-    if(window.$wt) $wt.trackPageView();
+    if (window.$wt) $wt.trackPageView();
   }, [pathname]);
   return <></>;
 };
