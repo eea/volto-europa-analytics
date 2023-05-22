@@ -39,14 +39,4 @@ const loadEuropaAnalyticsScript = () => {
   }
 };
 
-const removeEuropaAnalyticsScript = () => {
-  const existingScript =
-    __CLIENT__ && document.getElementById(`europaAnalyticsJS`);
-
-  //replace script loaded on each route change
-  if (existingScript) {
-    existingScript.remove();
-  }
-};
-
-export { loadEuropaAnalyticsScript, removeEuropaAnalyticsScript };
+export { loadEuropaAnalyticsScript };
