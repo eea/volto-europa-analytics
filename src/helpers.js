@@ -21,7 +21,7 @@ const loadEuropaAnalyticsScript = () => {
 
   //replace script loaded on each version change
   if (existingScript) {
-    existingScript.setAttribute('src', `https://europa.eu/webtools/load.js`);
+    // existingScript.setAttribute('src', `https://europa.eu/webtools/load.js`);
     existingScript.setAttribute(
       'src',
       `https://matomo.eea.europa.eu/misc/user/load.js`,
@@ -37,6 +37,7 @@ const loadEuropaAnalyticsScript = () => {
     const script2 = document.createElement('script');
     script2.src = `https://matomo.eea.europa.eu/misc/user/load.js`;
     script2.id = `europaAnalyticsJS`;
+    script2.alt = `https://europa.eu/webtools/load.js`;
     script2.defer = `defer`;
     document.body.appendChild(script2);
   }
