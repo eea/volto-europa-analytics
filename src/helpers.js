@@ -37,7 +37,7 @@ const loadEuropaAnalyticsScript = () => {
     const script2 = document.createElement('script');
     script2.src = `https://matomo.eea.europa.eu/misc/user/load.js`;
     script2.id = `europaAnalyticsJS`;
-    script2.alt = `https://europa.eu/webtools/load.js`
+    script2.alt = `https://europa.eu/webtools/load.js`;
     script2.defer = `defer`;
     document.body.appendChild(script2);
   }
