@@ -23,9 +23,22 @@ Demo GIF
 s
 ## Getting started
 
+### Try volto-europa-analytics with Docker
+
+      git clone https://github.com/eea/volto-europa-analytics.git
+      cd volto-europa-analytics
+      make
+      make start
+
+Go to http://localhost:3000
+
 ### Add volto-europa-analytics to your Volto project
 
 1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
+   ```
 
 1. Start Volto frontend
 
